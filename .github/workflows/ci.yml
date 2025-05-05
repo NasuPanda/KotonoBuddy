@@ -1,0 +1,45 @@
+name: CI
+
+# 1) When to run
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    # 2) Runner environment
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      # 3) Check out your code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 4) Install the right Node version & cache deps
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      # 5) Install dependencies exactly as locked
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      # 6) Lint your source
+      - name: Run ESLint
+        run: yarn lint
+
+      # 7) Run your tests
+      - name: Run tests
+        run: yarn test
+
+      # 8) Verify it builds
+      - name: Build for production
+        run: yarn build
