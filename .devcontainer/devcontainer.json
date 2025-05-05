@@ -1,0 +1,31 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "KotonoBuddy Dev Container",
+  "dockerFile": "Dockerfile",
+  "context": "..",
+
+  // Forward Vite’s default port so you can preview in your host browser
+  "forwardPorts": [5173],
+
+  // Mount your code in /workspace
+  "workspaceFolder": "/workspace",
+
+  // Re-use the container node_modules, not your host’s
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+
+  // Run this after the container is created
+  "postCreateCommand": "yarn install --frozen-lockfile",
+
+  // Recommended extensions inside the container
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "usernamehw.erb"          // whatever else you love
+  ],
+
+  // Optional: you can customize settings here or via .vscode/settings.json
+  "settings": {
+    "editor.formatOnSave": true,
+    "eslint.validate": ["javascript", "typescript", "typescriptreact"]
+  }
+}

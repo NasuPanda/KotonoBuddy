@@ -1,0 +1,11 @@
+# Use official Node image (arm64 variant for M1)
+FROM node:18-alpine
+
+WORKDIR /app
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
+
+# Watch file changes with polling (for Vite)
+ENV CHOKIDAR_USEPOLLING=true
+
+CMD ["yarn", "dev", "--host", "0.0.0.0"]
