@@ -1,54 +1,47 @@
-# React + TypeScript + Vite
+# Tech Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+KotonoBuddy’s development environment and workflows are powered by:
 
-Currently, two official plugins are available:
+## 🛠 Local Toolchain
+- **Node.js v18 LTS** managed via [asdf]
+- **Yarn v1.22.19** as the package manager
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Frontend Framework
+- **React 18 + TypeScript** scaffolded with **Vite** for:
+  - Instant HMR and fast rebuilds
+  - Small, tree-shaken production bundles
 
-## Expanding the ESLint configuration
+## 🐳 Containerized Dev Environments
+- **`.devcontainer/Dockerfile`**
+  – VS Code Remote–Containers image (Node, Git, Dev tools + extensions)
+- **`Dockerfile.dev` + `docker-compose.yml`**
+  – App server container running Vite (`yarn dev --host 0.0.0.0`)
+  – Code volume mounts + port forwarding (5173)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 💻 Editor Integration
+- **Visual Studio Code** with:
+  - **Remote–Containers** to “Reopen in Container”
+  - Recommended extensions: ESLint, Prettier, React/TS snippets
+  - Workspace settings for format-on-save and lint validation
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🎯 Code Quality & Automation
+- **ESLint** + **Prettier** for consistent linting & formatting
+- **Husky** + **lint-staged** to auto-lint & format on every commit
+- **`.env.example`** pattern + git-ignored `.env.local` for env vars
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔄 Continuous Integration
+- **GitHub Actions** workflow (`.github/workflows/ci.yml`) that on every push or PR to `main`:
+  1. Checks out code
+  2. Sets up Node.js & caches dependencies
+  3. Runs `yarn install --frozen-lockfile`
+  4. Executes `yarn lint`, `yarn test`, and `yarn build`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📦 Dependency Management
+- **Committed lockfile** (`yarn.lock`) for reproducible installs
+- **Dependabot** configured for weekly dependency bump PRs
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🔒 Branch Protection
+- **Branch protection rules** on `main` requiring:
+  - Passing CI status checks
+  - At least one approved pull-request review
+  - (Optional) Up-to-date merges before allowing a merge  
