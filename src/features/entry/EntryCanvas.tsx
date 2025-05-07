@@ -1,6 +1,6 @@
 // src/features/entry/EntryCanvas.tsx
 
-import React, { useRef, KeyboardEvent } from 'react';
+import { useRef, KeyboardEvent } from 'react';
 import { motion } from 'framer-motion';
 import styles from './EntryCanvas.module.css';
 import { useEntryStore } from './entry.slice';

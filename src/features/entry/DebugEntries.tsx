@@ -1,5 +1,4 @@
 // src/features/entry/DebugEntries.tsx
-import React from 'react';
 import { useEntryStore } from './entry.slice';
 
 export default function DebugEntries() {

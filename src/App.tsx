@@ -1,5 +1,4 @@
 // src/App.tsx
-import React from "react";
 import EntryCanvas from "./features/entry/EntryCanvas";
 import DebugEntries from './features/entry/DebugEntries';
 import Header from './components/Header';

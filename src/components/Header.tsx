@@ -1,5 +1,4 @@
 // src/components/Header.tsx
-import React from 'react';
 import backArrow from '../assets/icons/back-arrow.svg';
 import gear from '../assets/icons/gear.svg';
 
