@@ -2,11 +2,9 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  color: #333;
+  background-color: #f5f5f5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -25,14 +23,43 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  min-height: 100vh;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.4em;
   line-height: 1.1;
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin: 0;
 }
 
 button {
@@ -42,7 +69,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #f9f9f9;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -54,15 +81,99 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f8f5ed;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.back-button, .settings-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button img, .settings-button img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+.back-button:hover img, .settings-button:hover img {
+  opacity: 1;
+}
+
+.date-display {
+  color: #888;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 0.9em;
+}
+
+.debug-section {
+  margin-top: 2rem;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #666;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.debug-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+}
+
+.debug-title svg {
+  margin-right: 8px;
+}
+
+.entriesList {
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+@font-face {
+  font-family: 'NotebookSans';
+  src: url('/assets/fonts/NotebookSans.woff2') format('woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'NotebookHand';
+  src: url('/assets/fonts/NotebookHand.woff2') format('woff2');
+  font-weight: 400;
+}
+.sansFont { font-family: 'NotebookSans', sans-serif; }
+.handFont { font-family: 'NotebookHand', cursive; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    box-shadow: none;
   }
-  a:hover {
-    color: #747bff;
+
+  h1 {
+    font-size: 2em;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .debug-section {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
 }
