@@ -5,7 +5,11 @@ import { motion } from 'framer-motion';
 import styles from './EntryCanvas.module.css';
 import { useEntryStore } from './entry.slice';
 
-export default function EntryCanvas() {
+interface EntryCanvasProps {
+  onSentenceSubmit: (sentence: string) => void;
+}
+
+export default function EntryCanvas({ onSentenceSubmit }: EntryCanvasProps) {
   // Global entry state via Zustand
   const draft = useEntryStore((s) => s.draft);
   const addEntry = useEntryStore((s) => s.addEntry);
@@ -19,40 +23,43 @@ export default function EntryCanvas() {
     setDraft(ref.current?.innerText || '');
   };
 
-  // On Enter, capture the entry and clear
+  // On Enter, capture the entry, clear, and notify parent
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
       const text = draft.trim();
       if (text) {
+        // Add to local store
         addEntry(text);
+        // Clear draft for next entry
         setDraft('');
-        if (ref.current) ref.current.innerText = '';
+        if (ref.current) {
+          ref.current.innerText = '';
+        }
+        // Notify parent (App) that a new sentence was submitted
+        onSentenceSubmit(text);
       }
     }
   };
 
   return (
-    <>
-      {/* Paper-like canvas with a subtle "inscribing" animation */}
-      <motion.div
-        className={styles.canvas}
-        animate={{ backgroundPositionX: [0, 1, 0] }}
-        transition={{ duration: 0.3 }}
-      >
-        <div
-          ref={ref}
-          className={`
-            ${styles.typingArea}
-            ${!draft ? styles.placeholder : ''}
-          `}
-          contentEditable
-          data-placeholder="Today I noticed…"
-          suppressContentEditableWarning
-          onInput={handleInput}
-          onKeyDown={handleKeyDown}
-        />
-      </motion.div>
-    </>
+    <motion.div
+      className={styles.canvas}
+      animate={{ backgroundPositionX: [0, 1, 0] }}
+      transition={{ duration: 0.3 }}
+    >
+      <div
+        ref={ref}
+        className={`
+          ${styles.typingArea}
+          ${!draft ? styles.placeholder : ''}
+        `}
+        contentEditable
+        data-placeholder="Today I noticed…"
+        suppressContentEditableWarning
+        onInput={handleInput}
+        onKeyDown={handleKeyDown}
+      />
+    </motion.div>
   );
 }
