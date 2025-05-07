@@ -1,0 +1,49 @@
+/* src/components/Header.module.css */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 3rem;              /* fixed header height */
+  padding: 0 1rem;           /* horizontal breathing room */
+
+  pointer-events: none;      /* disable clicks on the container itself */
+}
+
+.iconBtn {
+  /* re-enable clicks only on the button */
+  pointer-events: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2rem;
+  height: 2rem;
+  background: rgba(255,255,255,0.3);  /* subtle off-white */
+  border-radius: 0.5rem;              /* soft corners */
+  border: none;
+
+  cursor: pointer;
+}
+
+.iconBtn img {
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.6;           /* faint but legible */
+}
+
+.title {
+  pointer-events: none;
+  font-family: 'NotebookHand', cursive;
+  font-size: 1rem;
+  color: #555;            /* mid-gray for good contrast */
+  text-align: center;
+  flex-grow: 1;           /* push the icons to the edges */
+  margin: 0 0.5rem;       /* space around the date text */
+}
