@@ -1,14 +1,11 @@
 // src/features/entry/EntryCanvas.tsx
 
-import React, { useRef, useState, KeyboardEvent } from 'react';
+import React, { useRef, KeyboardEvent } from 'react';
 import { motion } from 'framer-motion';
 import styles from './EntryCanvas.module.css';
 import { useEntryStore } from './entry.slice';
-import FontToggle from './FontToggle';
 
 export default function EntryCanvas() {
-  // Local UI state for font choice
-  const [font, setFont] = useState<'sans' | 'hand'>('sans');
   // Global entry state via Zustand
   const draft = useEntryStore((s) => s.draft);
   const addEntry = useEntryStore((s) => s.addEntry);
@@ -37,9 +34,6 @@ export default function EntryCanvas() {
 
   return (
     <>
-      {/* Toggle between sans-serif and handwriting fonts */}
-      <FontToggle value={font} onChange={setFont} />
-
       {/* Paper-like canvas with a subtle "inscribing" animation */}
       <motion.div
         className={styles.canvas}
@@ -51,7 +45,6 @@ export default function EntryCanvas() {
           className={`
             ${styles.typingArea}
             ${!draft ? styles.placeholder : ''}
-            ${font === 'sans' ? 'sansFont' : 'handFont'}
           `}
           contentEditable
           data-placeholder="Today I noticed…"
