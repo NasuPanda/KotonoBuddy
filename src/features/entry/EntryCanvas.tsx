@@ -1,6 +1,6 @@
 // src/features/entry/EntryCanvas.tsx
 
-import { useRef, KeyboardEvent } from 'react';
+import { useRef, useEffect, KeyboardEvent } from 'react';
 import { motion } from 'framer-motion';
 import styles from './EntryCanvas.module.css';
 import { useEntryStore } from './entry.slice';
@@ -10,33 +10,31 @@ interface EntryCanvasProps {
 }
 
 export default function EntryCanvas({ onSentenceSubmit }: EntryCanvasProps) {
-  // Global entry state via Zustand
   const draft = useEntryStore((s) => s.draft);
   const addEntry = useEntryStore((s) => s.addEntry);
   const setDraft = useEntryStore((s) => s.setDraft);
 
-  // Ref to our contentEditable div
+  // Create a ref to your contentEditable div
   const ref = useRef<HTMLDivElement>(null);
 
-  // Update draft text as user types
+  // Auto‐focus on mount
+  useEffect(() => {
+    // small delay sometimes helps if you have other animations
+    ref.current?.focus();
+  }, []);
+
   const handleInput = () => {
     setDraft(ref.current?.innerText || '');
   };
 
-  // On Enter, capture the entry, clear, and notify parent
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
       const text = draft.trim();
       if (text) {
-        // Add to local store
         addEntry(text);
-        // Clear draft for next entry
         setDraft('');
-        if (ref.current) {
-          ref.current.innerText = '';
-        }
-        // Notify parent (App) that a new sentence was submitted
+        ref.current!.innerText = '';
         onSentenceSubmit(text);
       }
     }
@@ -50,6 +48,7 @@ export default function EntryCanvas({ onSentenceSubmit }: EntryCanvasProps) {
     >
       <div
         ref={ref}
+        tabIndex={0}                   /* ← allow focus */
         className={`
           ${styles.typingArea}
           ${!draft ? styles.placeholder : ''}
