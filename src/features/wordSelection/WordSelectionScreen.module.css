@@ -5,8 +5,7 @@
   --content-gutter: 20px;
 }
 
-/* Notebook‐style parchment container */
-.container {
+.containerInner {
   padding: 4rem var(--content-gutter) 1rem;
   box-sizing: border-box;
   position: relative;
@@ -16,67 +15,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* Rich cream-colored parchment base */
-  background-color: #f8f5ed;
-
-  /* 4-layer background, top→bottom:
-     1) horizontal ruled lines
-     2) soft red margin line
-     3) subtle parchment texture band
-     4) gentle radial parchment gradient
-  */
-  background-image:
-    /* 1) Perfect ruled lines aligned with text (1px at every 1.5rem) */
-    repeating-linear-gradient(
-      to bottom,
-      transparent,
-      transparent calc(1.5rem - 1px),
-      rgba(180, 180, 200, 0.15) calc(1.5rem - 1px),
-      rgba(180, 180, 200, 0.15) 1.5rem
-    ),
-    /* 2) Red margin line - subtle and positioned at 1.75rem */
-    linear-gradient(
-      to right,
-      transparent 1.75rem,
-      rgba(255, 120, 120, 0.2) 1.75rem,
-      rgba(255, 120, 120, 0.2) 1.77rem,
-      transparent 1.77rem
-    ),
-    /* 3) Elegant parchment texture band for subtle variation */
-    linear-gradient(
-      to right,
-      rgba(250, 246, 240, 0.5),
-      rgba(252, 248, 242, 0.5)
-    ),
-    /* 4) Gentle radial parchment gradient for depth */
-    radial-gradient(
-      ellipse at center,
-      rgba(252, 250, 245, 0.9) 0%,
-      rgba(249, 246, 238, 0.9) 40%,
-      rgba(245, 242, 234, 0.9) 100%
-    );
-
-  /* Control repetition of each layer */
-  background-repeat:
-    repeat,     /* ruled lines repeat everywhere */
-    repeat-y,   /* margin line repeats vertically */
-    repeat,     /* texture band tiles horizontally */
-    no-repeat;  /* radial gradient appears once */
-
-  /* Define sizing for each layer */
-  background-size:
-    100% 1.5rem, /* ruled lines spacing */
-    auto,        /* margin uses its own width */
-    10px,        /* fine-grain texture band */
-    100% 100%;   /* radial gradient covers whole area */
-
-  /* Align each layer’s position */
-  background-position:
-    0 0,         /* rules at top */
-    0 0,         /* margin at top */
-    0 0,         /* texture at top */
-    center center; /* gradient centered */
 }
 
 .sentenceBlock {
