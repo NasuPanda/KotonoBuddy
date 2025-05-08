@@ -7,7 +7,7 @@
   justify-content: center;
   gap: 12px;
   padding: 8px 12px;
-  background-color: white;
+  background-color: #E0F4E4;
   border-radius: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   z-index: 100;
@@ -30,7 +30,7 @@
   height: 36px;
   border-radius: 50%;
   border: none;
-  background-color: #F0E5D8;
+  background-color: #E0F4E4;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -40,11 +40,11 @@
 }
 
 .toolbarButton:hover {
-  background-color: #E8DAC6;
+  background-color: #d7efc9;
   transform: scale(1.05);
 }
 
 .toolbarButton:active {
-  background-color: #D7C8B5;
+  background-color: #b8d9a4;
   transform: scale(0.95);
 }

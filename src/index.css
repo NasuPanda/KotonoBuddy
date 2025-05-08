@@ -38,8 +38,8 @@ body {
   width: 100%;
   max-width: 800px;
   min-height: 100vh;
-  background-color: #fff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #F7F1E5;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .content-container {
@@ -121,7 +121,7 @@ button:focus-visible {
 .debug-section {
   margin-top: 2rem;
   padding: 15px;
-  background-color: #F0E5D8;
+  background-color: #E0F4E4;
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.05);
   color: #666;
