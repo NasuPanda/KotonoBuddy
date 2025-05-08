@@ -30,7 +30,7 @@
   height: 36px;
   border-radius: 50%;
   border: none;
-  background-color: #f0f0f0;
+  background-color: #F0E5D8;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -40,10 +40,11 @@
 }
 
 .toolbarButton:hover {
-  background-color: #e0e0e0;
+  background-color: #E8DAC6;
   transform: scale(1.05);
 }
 
 .toolbarButton:active {
+  background-color: #D7C8B5;
   transform: scale(0.95);
 }
