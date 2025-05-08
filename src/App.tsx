@@ -10,6 +10,7 @@ function App() {
   const [currentScreen, setCurrentScreen] = useState<'entry' | 'wordSelection'>('entry');
   const [currentSentence, setCurrentSentence] = useState('');
   const [selectedWords, setSelectedWords] = useState<string[]>([]);
+  console.log("selected words are:", selectedWords);
 
   // Handler for when a sentence is submitted from EntryCanvas
   const handleSentenceSubmit = (sentence: string) => {
