@@ -25,12 +25,9 @@ const WordToolbar: React.FC<WordToolbarProps> = ({
       const rect = toolbar.getBoundingClientRect();
 
       // Get the parent container boundaries
-      const parentRect = toolbar.parentElement?.getBoundingClientRect() || {
-        left: 0,
-        right: window.innerWidth,
-        top: 0,
-        bottom: window.innerHeight
-      };
+      const parentElem = toolbar.parentElement;
+      if (!parentElem) return;
+      const parentRect = parentElem.getBoundingClientRect();
 
       // Adjust x position if toolbar would go out of bounds
       let adjustedX = position.x;

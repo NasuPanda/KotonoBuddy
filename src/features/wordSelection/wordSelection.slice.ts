@@ -2,7 +2,7 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface WordSelectionState {
+export interface WordSelectionState {
   sentence: string;
   selectedWords: string[];
   translations: Record<string, string>;
@@ -15,41 +15,64 @@ const initialState: WordSelectionState = {
   selectedWords: [],
   translations: {},
   images: {},
-  audio: {}
+  audio: {},
 };
 
 const wordSelectionSlice = createSlice({
   name: 'wordSelection',
   initialState,
   reducers: {
-    setSentence(state, action: PayloadAction<string>) {
+    setSentence(
+      state: WordSelectionState,
+      action: PayloadAction<string>
+    ) {
       state.sentence = action.payload;
     },
-    addSelectedWord(state, action: PayloadAction<string>) {
-      if (!state.selectedWords.includes(action.payload)) {
-        state.selectedWords.push(action.payload);
+    addSelectedWord(
+      state: WordSelectionState,
+      action: PayloadAction<string>
+    ) {
+      const word = action.payload;
+      if (!state.selectedWords.includes(word)) {
+        state.selectedWords.push(word);
       }
     },
-    removeSelectedWord(state, action: PayloadAction<string>) {
-      state.selectedWords = state.selectedWords.filter(word => word !== action.payload);
+    removeSelectedWord(
+      state: WordSelectionState,
+      action: PayloadAction<string>
+    ) {
+      const word = action.payload;
+      state.selectedWords = state.selectedWords.filter(w => w !== word);
     },
-    setTranslation(state, action: PayloadAction<{ word: string; translation: string }>) {
-      state.translations[action.payload.word] = action.payload.translation;
+    setTranslation(
+      state: WordSelectionState,
+      action: PayloadAction<{ word: string; translation: string }>
+    ) {
+      const { word, translation } = action.payload;
+      state.translations[word] = translation;
     },
-    setImage(state, action: PayloadAction<{ word: string; imageUrl: string }>) {
-      state.images[action.payload.word] = action.payload.imageUrl;
+    setImage(
+      state: WordSelectionState,
+      action: PayloadAction<{ word: string; imageUrl: string }>
+    ) {
+      const { word, imageUrl } = action.payload;
+      state.images[word] = imageUrl;
     },
-    setAudio(state, action: PayloadAction<{ word: string; audioUrl: string }>) {
-      state.audio[action.payload.word] = action.payload.audioUrl;
+    setAudio(
+      state: WordSelectionState,
+      action: PayloadAction<{ word: string; audioUrl: string }>
+    ) {
+      const { word, audioUrl } = action.payload;
+      state.audio[word] = audioUrl;
     },
-    clearWordSelection(state) {
+    clearWordSelection(state: WordSelectionState) {
       state.sentence = '';
       state.selectedWords = [];
       state.translations = {};
       state.images = {};
       state.audio = {};
-    }
-  }
+    },
+  },
 });
 
 export const {
@@ -59,7 +82,7 @@ export const {
   setTranslation,
   setImage,
   setAudio,
-  clearWordSelection
+  clearWordSelection,
 } = wordSelectionSlice.actions;
 
 export default wordSelectionSlice.reducer;
