@@ -1,11 +1,13 @@
 /* src/index.css */
+@import './theme/colors.css';
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
-  color: #333;
-  background-color: #f5f5f5;
+  color: #333; /* leave this as-is or change to var(--color-text-primary) later */
+  background-color: var(--color-body-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -14,11 +16,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--color-link);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--color-link-hover);
 }
 
 body {
@@ -28,7 +30,7 @@ body {
   align-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: var(--color-body-bg);
   padding: 0;
 }
 
@@ -38,7 +40,7 @@ body {
   width: 100%;
   max-width: 800px;
   min-height: 100vh;
-  background-color: #F7F1E5;
+  background-color: var(--color-page-backdrop);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -54,7 +56,7 @@ h1 {
   font-size: 2.4em;
   line-height: 1.1;
   margin: 0 0 20px 0;
-  color: #333;
+  color: var(--color-text-primary);
 }
 
 h2 {
@@ -70,12 +72,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #f9f9f9;
+  background-color: var(--color-button-default-bg);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--color-button-hover-border);
 }
 button:focus,
 button:focus-visible {
@@ -87,11 +89,12 @@ button:focus-visible {
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background-color: #f8f5ed;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--color-header-bg);
+  border-bottom: 1px solid var(--color-header-border);
 }
 
-.back-button, .settings-button {
+.back-button,
+.settings-button {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -101,18 +104,20 @@ button:focus-visible {
   justify-content: center;
 }
 
-.back-button img, .settings-button img {
+.back-button img,
+.settings-button img {
   width: 20px;
   height: 20px;
-  opacity: 0.7;
+  opacity: var(--color-icon-opacity);
 }
 
-.back-button:hover img, .settings-button:hover img {
+.back-button:hover img,
+.settings-button:hover img {
   opacity: 1;
 }
 
 .date-display {
-  color: #888;
+  color: var(--color-date-display);
   text-align: center;
   padding: 5px 0;
   font-size: 0.9em;
@@ -121,10 +126,10 @@ button:focus-visible {
 .debug-section {
   margin-top: 2rem;
   padding: 15px;
-  background-color: #E0F4E4;
+  background-color: var(--color-debug-bg);
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  color: #666;
+  color: #666; /* optional: use var for secondary text if defined */
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -133,7 +138,7 @@ button:focus-visible {
 .debug-title {
   font-weight: bold;
   margin-bottom: 10px;
-  color: #555;
+  color: var(--color-text-primary);
   display: flex;
   align-items: center;
   font-size: 1.1em;
@@ -159,8 +164,12 @@ button:focus-visible {
   src: url('/assets/fonts/NotebookHand.woff2') format('woff2');
   font-weight: 400;
 }
-.sansFont { font-family: 'NotebookSans', sans-serif; }
-.handFont { font-family: 'NotebookHand', cursive; }
+.sansFont {
+  font-family: 'NotebookSans', sans-serif;
+}
+.handFont {
+  font-family: 'NotebookHand', cursive;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

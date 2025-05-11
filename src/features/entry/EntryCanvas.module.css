@@ -1,4 +1,6 @@
 /* src/features/entry/EntryCanvas.module.css */
+@import '../../theme/colors.css';
+
 .inner {
   width: 100%;
 }
@@ -20,7 +22,7 @@
 
 .placeholder::before {
   content: attr(data-placeholder);
-  color: #aaa;
+  color: var(--color-text-placeholder);
   position: absolute;
   top: 0;
   left: 0.25rem;
