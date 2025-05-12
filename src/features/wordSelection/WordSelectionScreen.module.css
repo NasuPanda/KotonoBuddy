@@ -12,12 +12,11 @@
   position: relative;
   width: 100%;
   min-height: 300px;
+  min-width: 360px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* keep paper‐page styling in shared PaperPage component */
 }
 
 .sentenceBlock {
@@ -67,7 +66,6 @@
   background-color: var(--color-word-selected-underline);
 }
 
-/* Ripple effect for word taps */
 @keyframes ripple {
   0% {
     transform: scale(0);
@@ -103,7 +101,26 @@
   width: 100%;
   max-width: var(--content-max-width);
   margin: 30px auto 0;
+  padding: 0 20px;
   box-sizing: border-box;
+}
+
+.actionButtons {
+  gap: 20px;
+}
+
+.actionButtons button:first-child {
+  margin-right: auto;
+}
+
+.actionButtons button:last-child {
+  margin-left: auto;
+}
+
+.actionButtons:focus,
+.actionButtons:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(100,149,237,0.5);
 }
 
 .backButton,

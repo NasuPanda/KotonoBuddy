@@ -1,0 +1,44 @@
+/* src/components/ui/DebugCard.module.css */
+@import '../../theme/colors.css';
+
+.debugSection {
+  margin-top: 2rem;
+  padding: 15px;
+  background-color: var(--color-debug-bg);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #666; /* optional: use var for secondary text if defined */
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+
+.debugTitle {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+}
+
+.debugTitle svg {
+  margin-right: 8px;
+}
+
+.entriesList {
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .debugSection {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}

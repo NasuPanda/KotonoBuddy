@@ -1,0 +1,82 @@
+/* src/components/ui/Button.module.css */
+@import '../../theme/colors.css';
+
+.button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-button-default-bg);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.button:hover {
+  border-color: var(--color-button-hover-border);
+}
+
+.button:focus,
+.button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Button variants */
+.primary {
+  background-color: var(--color-primary-btn-bg);
+  color: var(--color-page-backdrop);
+}
+
+.primary:hover {
+  background-color: var(--color-primary-btn-hover);
+}
+
+.secondary {
+  background-color: var(--color-secondary-btn-bg);
+  color: var(--color-text-primary);
+}
+
+.secondary:hover {
+  background-color: var(--color-secondary-btn-hover);
+}
+
+.done {
+  background-color: var(--color-done-btn-bg);
+  color: var(--color-page-backdrop);
+}
+
+.done:hover {
+  background-color: var(--color-done-btn-hover);
+}
+
+.back {
+  background-color: var(--color-back-btn-bg);
+  color: var(--color-text-primary);
+}
+
+.back:hover {
+  background-color: var(--color-back-btn-hover);
+}
+
+/* Button sizes */
+.large {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+}
+
+.medium {
+  font-size: 1rem;
+  padding: 8px 16px;
+}
+
+.small {
+  font-size: 0.9rem;
+  padding: 6px 12px;
+}
+
+/* Button shapes */
+.rounded {
+  border-radius: 20px;
+}
+

@@ -3,7 +3,7 @@ import { useRef, useEffect, KeyboardEvent } from 'react';
 import { motion } from 'framer-motion';
 import styles from './EntryCanvas.module.css';
 import { useEntryStore } from './entry.slice';
-import PaperPage from '../../components/PaperPage';
+import { PaperPage } from '../../components/ui';
 
 interface EntryCanvasProps {
   onSentenceSubmit: (sentence: string) => void;

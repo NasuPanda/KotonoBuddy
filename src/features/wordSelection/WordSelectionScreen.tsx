@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import WordToolbar from './WordToolbar';
 import styles from './WordSelectionScreen.module.css';
-import PaperPage from '../../components/PaperPage';
+import { PaperPage, Button } from '../../components/ui';
 
 interface WordSelectionScreenProps {
   sentence: string;
@@ -96,8 +96,8 @@ export default function WordSelectionScreen({
         )}
 
         <div className={styles.actionButtons}>
-          <button className={styles.backButton} onClick={onBack}>Back</button>
-          <button className={styles.doneButton} onClick={handleComplete}>Done</button>
+            <Button className={styles.backButton} variant="back" onClick={onBack}>Back</Button>
+            <Button className={styles.doneButton} variant="done" onClick={handleComplete}>Done</Button>
         </div>
       </div>
     </PaperPage>
