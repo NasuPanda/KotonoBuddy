@@ -1,0 +1,74 @@
+/* src/components/ui/IconButton.module.css */
+@import '../../theme/colors.css';
+
+.iconButton {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: var(--color-icon-bg);
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.2s ease;
+  margin: 0;
+}
+
+/* Original class name for backward compatibility */
+.iconBtn {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: var(--color-icon-bg);
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.iconButton img,
+.iconButton svg,
+.iconBtn img,
+.iconBtn svg {
+  width: 1rem;
+  height: 1rem;
+  opacity: var(--color-icon-opacity);
+}
+
+.iconButton:hover img,
+.iconButton:hover svg,
+.iconBtn:hover img,
+.iconBtn:hover svg {
+  opacity: 1;
+}
+
+/* Round variant */
+.round {
+  border-radius: 50%;
+}
+
+/* Size variants */
+.small {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.medium {
+  width: 2rem;
+  height: 2rem;
+}
+
+.large {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Transparent variant */
+.transparent {
+  background: transparent;
+}

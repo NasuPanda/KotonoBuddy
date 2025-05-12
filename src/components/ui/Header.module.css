@@ -1,0 +1,82 @@
+/* src/components/ui/Header.module.css */
+@import '../../theme/colors.css';
+
+.header, .headerBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: var(--color-header-bg);
+  border-bottom: 1px solid var(--color-header-border);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  font-family: 'NotebookHand', cursive;
+  font-size: 1.5em;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-align: center;
+  margin: 0;
+}
+
+.leftSection,
+.rightSection {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.leftSection {
+  justify-content: flex-start;
+}
+
+.rightSection {
+  justify-content: flex-end;
+}
+
+.centerSection {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+/* Button styles */
+.backButton,
+.settingsButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+}
+
+.backButton img,
+.settingsButton img {
+  width: 20px;
+  height: 20px;
+  opacity: var(--color-icon-opacity);
+}
+
+.backButton:hover img,
+.settingsButton:hover img {
+  opacity: 1;
+}
+
+.dateDisplay {
+  color: var(--color-date-display);
+  text-align: center;
+  padding: 5px 0;
+  font-size: 0.9em;
+}
+
+/* Transparent variant */
+.transparent {
+  background: transparent;
+  border-bottom: none;
+}

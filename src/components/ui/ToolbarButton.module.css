@@ -1,0 +1,50 @@
+/* src/components/ui/ToolbarButton.module.css */
+@import '../../theme/colors.css';
+
+.toolbarButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-toolbar-btn-bg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.2s ease;
+}
+
+.toolbarButton:hover {
+  background-color: var(--color-toolbar-btn-hover);
+  transform: scale(1.05);
+}
+
+.toolbarButton:active {
+  background-color: var(--color-toolbar-btn-active);
+  transform: scale(0.95);
+}
+
+/* Size variants */
+.small {
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+}
+
+.medium {
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+}
+
+.large {
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+}
+
+/* Active state */
+.active {
+  background-color: var(--color-toolbar-btn-active);
+}

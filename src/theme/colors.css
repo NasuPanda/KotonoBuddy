@@ -1,0 +1,48 @@
+/* src/theme/colors.css */
+:root {
+  /* Paper & Canvas */
+  --color-paper-base: #f8f5ed;          /* Entry & Page background */
+  --color-paper-ruled: rgba(180,180,200,0.15);
+  --color-paper-margin: rgba(255,120,120,0.2);
+  --color-paper-texture-lin1: rgba(250,246,240,0.5);
+  --color-paper-texture-lin2: rgba(252,248,242,0.5);
+  --color-paper-texture-rad-start: rgba(252,250,245,0.9);
+  --color-paper-texture-rad-mid: rgba(249,246,238,0.9);
+  --color-paper-texture-rad-end: rgba(245,242,234,0.9);
+
+  /* App Shell */
+  --color-page-backdrop: #ffffff;
+  --color-body-bg: #f5f5f5;
+  --color-debug-bg: #f0e5d8;
+
+  /* Text & Links */
+  --color-text-primary: #333333;
+  --color-text-placeholder: #aaaaaa;
+  --color-link: #646cff;
+  --color-link-hover: #535bf2;
+
+  /* Header */
+  --color-header-bg: #f8f5ed;
+  --color-header-border: rgba(0,0,0,0.1);
+  --color-date-display: #888888;
+  --color-icon-bg: rgba(255,255,255,0.3);
+  --color-icon-opacity: 0.6;
+
+  /* Buttons & Interactives */
+  --color-button-default-bg: #f9f9f9;
+  --color-button-hover-border: #646cff;
+  --color-back-btn-bg: #f0e5d8;
+  --color-back-btn-hover: #e8dac6;
+  --color-done-btn-bg: #6b8e23;
+  --color-done-btn-hover: #4f6f50;
+  --color-toolbar-btn-bg: #E0F4E4;
+  --color-toolbar-btn-hover: #d7efc9;
+  --color-toolbar-btn-active: #b8d9a4;
+
+  /* Word Selection */
+  --color-word-hover: rgba(247,213,219,0.2);
+  /* --color-word-active: rgba(107,142,35,0.2); */
+  --color-word-active: rgba(247,213,219,0.2);
+  --color-word-selected-bg: rgba(255,223,126,0.4);
+  --color-word-selected-underline: #ffd700;
+}

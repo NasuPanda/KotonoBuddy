@@ -1,6 +1,3 @@
 // src/features/wordSelection/index.ts
-
-import WordSelectionScreen from './WordSelectionScreen';
-import WordToolbar from './WordToolbar';
-
-export { WordSelectionScreen, WordToolbar };
+export { default as WordSelectionScreen } from './WordSelectionScreen';
+export { default as WordToolbar } from './WordToolbar';

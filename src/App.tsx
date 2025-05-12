@@ -1,8 +1,7 @@
 // src/App.tsx
 import { useState } from 'react';
-import EntryCanvas from "./features/entry/EntryCanvas";
-import DebugEntries from './features/entry/DebugEntries';
-import Header from './components/Header';
+import { EntryCanvas, DebugEntries } from './features/entry';
+import { Header } from './components/ui';
 import { WordSelectionScreen } from './features/wordSelection';
 import './App.css';
 
@@ -37,18 +36,10 @@ function App() {
       <div className="content-container">
         {currentScreen === 'entry' ? (
           <>
-            <h1>KotonoBuddy – Entry Test</h1>
+            <h1>A book title</h1>
             <EntryCanvas onSentenceSubmit={handleSentenceSubmit} />
 
-            <div className="debug-section">
-              <div className="debug-title">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-                Debug: Entries So Far
-              </div>
-              <DebugEntries />
-            </div>
+            <DebugEntries />
           </>
         ) : (
           <WordSelectionScreen
