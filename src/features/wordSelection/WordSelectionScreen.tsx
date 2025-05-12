@@ -58,7 +58,11 @@ export default function WordSelectionScreen({
     );
   };
 
-  const handleTranslation = () => { selectedWordIndex !== null && toggleWordSelection(selectedWordIndex); };
+  const handleTranslation = () => {
+      if (selectedWordIndex !== null) {
+        toggleWordSelection(selectedWordIndex);
+      }
+    };
   const handleImage = () => { console.log('Image for', words[selectedWordIndex!]); };
   const handleAudio = () => { console.log('Audio for', words[selectedWordIndex!]); };
   const handleComplete = () => onComplete(selectedWords);
